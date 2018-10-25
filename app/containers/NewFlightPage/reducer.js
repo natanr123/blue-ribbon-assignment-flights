@@ -3,14 +3,14 @@ import * as constants from './constants';
 
 export const initialState = fromJS(
   {
-    env: null,
+    flightCreated: null,
   }
 );
 
 function problemReducer(state = initialState, action) {
   switch (action.type) {
-    case constants.CREATE_FLIGHT:
-      return state.set('env', action.env);
+    case constants.FLIGHT_CREATED:
+      return state.set('flight', action.flight);
     default:
       return state;
   }

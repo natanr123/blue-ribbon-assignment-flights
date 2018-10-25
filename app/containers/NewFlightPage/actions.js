@@ -1,8 +1,9 @@
 import * as constants from './constants';
 
-export function createFlight() {
+export function flightCreated(flight) {
   return {
-    type: constants.CREATE_FLIGHT,
+    type: constants.FLIGHT_CREATED,
+    flight
   };
 }
 

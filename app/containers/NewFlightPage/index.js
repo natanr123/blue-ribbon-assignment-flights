@@ -15,6 +15,11 @@ export class NewFlightPage extends React.PureComponent {
   componentDidMount() {
   }
 
+  onSubmit(values) {
+    const flight = FlightsService.create(values);
+    this.props.flightCreated(flight);
+  }
+
   render() {
     const initialValues = {
       from: 'Tel Aviv',
@@ -36,7 +41,7 @@ export class NewFlightPage extends React.PureComponent {
           <h1>New Flight Page</h1>
           <a href={'/flights'}>See Flights List</a>
           <Formik
-            onSubmit={(values) => { this.props.onSubmit(values); }}
+            onSubmit={(values) => { this.onSubmit(values); }}
             initialValues={initialValues}
           >
             {({ values }) => (
@@ -80,7 +85,24 @@ export class NewFlightPage extends React.PureComponent {
                   Submit
                 </button>
                 <br />
-                <span>{JSON.stringify(values)}</span>
+                <br />
+                {this.props.flight ?
+                  <div className="alert alert-success" >
+                    <span>A flight from </span>
+                    <span>{this.props.flight.to}</span>
+                    <span> to </span>
+                    <span>{this.props.flight.to}</span>
+                    <span> Was successfully created</span>
+                  </div> : ''
+                }
+                <br />
+                <br />
+                <br />
+                <div>
+                  <p>Debug Section: </p>
+                  <p>{JSON.stringify(values)}</p>
+                </div>
+
               </Form>
             )}
           </Formik>
@@ -92,23 +114,22 @@ export class NewFlightPage extends React.PureComponent {
 
 export function mapDispatchToProps(dispatch) {
   return {
-    onSubmit: (values) => {
-      FlightsService.create(values);
-      // console.log(FlightsService.list());
-      dispatch(actions.createFlight());
+    flightCreated: (values) => {
+      dispatch(actions.flightCreated(values));
     }
   };
 }
 
 const mapStateToProps = (state) => {
-  const newFlight = state.get('newFlight');
+  const newFlightState = state.get('newFlight');
   return {
-    env: newFlight.get('env'),
+    flight: newFlightState.get('flight'),
   };
 };
 
 NewFlightPage.propTypes = {
-  onSubmit: PropTypes.func,
+  flightCreated: PropTypes.func,
+  flight: PropTypes.any,
 };
 
 const withConnect = connect(

@@ -8,6 +8,7 @@ export default class FlightsService {
     }
     current.push(values);
     localStorage.setItem('flights', JSON.stringify(current));
+    return values;
   }
   static clear() {
     localStorage.setItem('flights', JSON.stringify([]));

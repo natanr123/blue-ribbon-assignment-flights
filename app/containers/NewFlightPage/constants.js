@@ -1,2 +1,2 @@
-export const CREATE_FLIGHT = 'boilerplate/NewFlight/CREATE_FLIGHT';
+export const FLIGHT_CREATED = 'boilerplate/NewFlight/FLIGHT_CREATED';
 
