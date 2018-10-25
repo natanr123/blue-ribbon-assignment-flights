@@ -28,18 +28,6 @@ app.use((req, res, next) => {
   next();
 });
 
-const redirectWWW = false;
-if (redirectWWW) {
-  app.all(/.*/, (req, res, next) => {
-    const host = req.header('host');
-    if (host.match(/^www\..*/i)) {
-      next();
-    } else {
-      res.redirect(301, `http://www.${host + req.url}`);
-    }
-  });
-}
-
 // In production we need to pass these values in instead of relying on webpack
 setup(app, {
   outputPath: resolve(process.cwd(), 'build'),
