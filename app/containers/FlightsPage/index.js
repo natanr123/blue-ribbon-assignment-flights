@@ -6,7 +6,16 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import injectReducer from 'utils/injectReducer';
 import FlightsService from 'services/FlightsService';
-import { Grid, Table, TableHeaderRow } from '@devexpress/dx-react-grid-material-ui';
+import {
+  FilteringState,
+  IntegratedFiltering,
+} from '@devexpress/dx-react-grid';
+import {
+  Grid,
+  Table,
+  TableHeaderRow,
+  TableFilterRow,
+} from '@devexpress/dx-react-grid-material-ui';
 import reducer from './reducer';
 import * as actions from './actions';
 
@@ -53,8 +62,11 @@ export class FlightsPage extends React.PureComponent {
               { name: 'price', title: 'Price' },
             ]}
           >
+            <FilteringState defaultFilters={[]} />
+            <IntegratedFiltering />
             <Table />
             <TableHeaderRow />
+            <TableFilterRow />
           </Grid> : <p> No Flights Data </p>
         }
       </article>
