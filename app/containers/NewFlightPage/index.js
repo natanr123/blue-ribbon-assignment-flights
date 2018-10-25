@@ -29,11 +29,12 @@ export class NewFlightPage extends React.PureComponent {
           <title>NewFlightPage</title>
           <meta
             name="description"
-            content="NewFlightPage"
+            content="New Flight Page"
           />
         </Helmet>
         <div>
-          <h1>NewFlightPage</h1>
+          <h1>New Flight Page</h1>
+          <a href={'/flights'}>See Flights List</a>
           <Formik
             onSubmit={(values) => { this.props.onSubmit(values); }}
             initialValues={initialValues}

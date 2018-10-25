@@ -24,7 +24,7 @@ const App = () => (
     >
     </Helmet>
     <Switch>
-      <Route exact path="/" component={NewFlightPage} />
+      <Route exact path="/" component={FlightsPage} />
       <Route exact path="/new" component={NewFlightPage} />
       <Route exact path="/flights" component={FlightsPage} />
       <Route path="" component={NotFoundPage} />

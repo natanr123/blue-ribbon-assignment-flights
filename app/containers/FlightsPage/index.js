@@ -41,6 +41,7 @@ export class FlightsPage extends React.PureComponent {
           <h1>Flights</h1>
         </div>
         <button onClick={() => { this.clearFlights(); }}>Clear Flights</button>
+        <a href={'/new'}>Create New Flight</a>
         {this.props.flights ?
           <Grid
             rows={this.props.flights}
