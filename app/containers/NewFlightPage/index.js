@@ -50,38 +50,38 @@ export class NewFlightPage extends React.PureComponent {
                 <Field
                   type={'text'}
                   name={'from'}
-                  style={{ width: '300px', height: '30px', border: 'solid' }}
+                  style={{ width: '300px', height: '30px' }}
                 />
                 <br />
                 <span>To:</span>
                 <Field
                   type={'text'}
                   name={'to'}
-                  style={{ width: '300px', height: '30px', border: 'solid' }}
+                  style={{ width: '300px', height: '30px' }}
                 />
                 <br />
                 <span>Departure Time​:</span>
                 <Field
                   type={'text'}
                   name={'departureTime'}
-                  style={{ width: '300px', height: '30px', border: 'solid' }}
+                  style={{ width: '300px', height: '30px' }}
                 />
                 <br />
                 <span>LandingTime​​:</span>
                 <Field
                   type={'text'}
                   name={'landingTime'}
-                  style={{ width: '300px', height: '30px', border: 'solid' }}
+                  style={{ width: '300px', height: '30px' }}
                 />
                 <br />
                 <span>Price​:</span>
                 <Field
                   type={'text'}
                   name={'price'}
-                  style={{ width: '300px', height: '30px', border: 'solid' }}
+                  style={{ width: '300px', height: '30px' }}
                 />
                 <br />
-                <button type="submit" variant="contained" color="primary">
+                <button type="submit">
                   Submit
                 </button>
                 <br />
